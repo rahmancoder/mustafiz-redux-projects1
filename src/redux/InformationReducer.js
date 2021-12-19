@@ -9,18 +9,18 @@ export const InformationReducer = (state = initialState, action) => {
             state = [...state, action.payload];
             return state;
         case "DELETE_INFORMATION":
-            const contactFilter = state.filter((contact) =>
-                contact.id === action.payload ? null : contact
+            const informationFilter = state.filter((information) =>
+                information.id === action.payload ? null : information
             );
-            state = contactFilter;
+            state = informationFilter;
             return state;
         case "UPDATE_INFORMATION":
-            const contactUpdate = state.filter((contact) =>
-                contact.id === action.payload.id
-                    ? Object.assign(contact, action.payload)
-                    : contact
+            const informationUpdate = state.filter((information) =>
+                information.id === action.payload.id
+                    ? Object.assign(information, action.payload)
+                    : information
             );
-            state = contactUpdate;
+            state = informationUpdate;
             return state;
         case "RESET_INFORMATION":
             state = [{ name: null, email: null, phone: null }];
