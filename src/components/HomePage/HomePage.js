@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 const HomePage = ({ informations, deleteInformation }) => {
     return (
@@ -56,4 +58,14 @@ const HomePage = ({ informations, deleteInformation }) => {
     );
 };
 
-export default HomePage;
+// export default HomePage;
+
+const mapStateToProps = (state) => ({
+    informations: state,
+}); const mapDispatchToProps = (dispatch) => ({
+    deleteInformation: (id) => {
+        dispatch({ type: "DELETE_INFORMATION", payload: id });
+    },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
