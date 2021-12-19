@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from "react-router";
+import { connect } from "react-redux";
+import { toast } from "react-toastify";
 
 const AddInformation = () => {
 
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
 
+    const history = useHistory();
 
 
     const handleSubmit = (e) => {
@@ -85,4 +92,16 @@ const AddInformation = () => {
     );
 };
 
-export default AddInformation;
+// export default AddInformation;
+
+
+const mapStateToProps = (state) => ({
+    informations: state,
+});
+const mapDispatchToProps = (dispatch) => ({
+    addContact: (data) => {
+        dispatch({ type: "ADD_INFORMATION", payload: data });
+    },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddInformation);
