@@ -22,7 +22,7 @@ const HomePage = ({ informations, deleteInformation }) => {
                         </thead>
                         <tbody>
                             {informations.length > 0 ? (
-                                contacts.map((information, id) => (
+                                informations.map((information, id) => (
                                     <tr key={id}>
                                         <td>{id + 1}</td>
                                         <td>{information.name}</td>

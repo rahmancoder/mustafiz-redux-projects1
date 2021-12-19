@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from "react-router";
 import { toast } from "react-toastify";
 import { connect } from "react-redux";
@@ -29,8 +29,8 @@ const UpdateInformation = ({ informations, updateInformation }) => {
                 ? information
                 : null
         );
-        const checkContactPhoneExists = contacts.filter((information) =>
-            information.phone === phone && contact.id !== currentInformation.id
+        const checkContactPhoneExists = informations.filter((information) =>
+            information.phone === phone && information.id !== currentInformation.id
                 ? information
                 : null
         );
@@ -69,7 +69,7 @@ const UpdateInformation = ({ informations, updateInformation }) => {
                     Go back
                 </button>
                 <div className="col-md-6 mx-auto shadow p-5">
-                    {currentContact ? (
+                    {currentInformation ? (
                         <form onSubmit={handleSubmit}>
                             <div className="form-group">
                                 <input

@@ -99,7 +99,7 @@ const mapStateToProps = (state) => ({
     informations: state,
 });
 const mapDispatchToProps = (dispatch) => ({
-    addContact: (data) => {
+    addInformation: (data) => {
         dispatch({ type: "ADD_INFORMATION", payload: data });
     },
 });
