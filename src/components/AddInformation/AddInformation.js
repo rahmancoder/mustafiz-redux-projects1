@@ -3,7 +3,7 @@ import { useHistory } from "react-router";
 import { connect } from "react-redux";
 import { toast } from "react-toastify";
 
-const AddInformation = () => {
+const AddInformation = ({ informations, addInformation }) => {
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -25,10 +25,10 @@ const AddInformation = () => {
             return toast.warning("EMpty field fill please");
         }
         if (checkContactEmailExists.length > 0) {
-            return toast.error("This email already exists!!");
+            return toast.error("EMail taken");
         }
         if (checkContactPhoneExists.length > 0) {
-            return toast.error("This phone number already exists!!");
+            return toast.error("Wrong Number");
         }
 
         const data = {
