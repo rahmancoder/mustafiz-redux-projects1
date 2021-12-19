@@ -9,14 +9,14 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { createStore } from "redux";
 import { Provider } from "react-redux";
-// import { contactReducer } from "./redux/reducers/contactReducer";
+import { InformationReducer } from "./redux/InformationReducer";
 import { composeWithDevTools } from "redux-devtools-extension";
 
-// const store = createStore(contactReducer, composeWithDevTools());
+const store = createStore(InformationReducer, composeWithDevTools());
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
-  <Provider >
+  <Provider store={store} >
     <Router>
       <App />
     </Router>
